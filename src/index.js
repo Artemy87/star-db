@@ -1,48 +1,6 @@
-// класс клиент для star wars API
-class SwapiServerce {
-  _apiBase = "https://swapi.dev/api";
+import React from "react";
+import ReactDOM from "react-dom";
 
-  async getResource(url) {
-    const res = await fetch(`${this._apiBase}${url}`);
-    if (!res.ok) {
-      throw new Error(`
-      Could not fetch ${url},
-      received ${res.status}`);
-    }
+import App from "./components/app";
 
-    return await res.json();
-  }
-
-  async getAllPeople() {
-    const res = await this.getResource(`/people/`);
-    return res.results;
-  }
-
-  getPerson(id) {
-    return this.getResource(`/people/${id}`);
-  }
-
-  async getAllPlanets() {
-    const res = await this.getResource(`/planets/`);
-    return res;
-  }
-
-  getPlanet(id) {
-    return this.getResource(`/planets/${id}`);
-  }
-
-  async getAllStarships() {
-    const res = await this.getResource(`/starships/`);
-    return res;
-  }
-
-  getStarships(id) {
-    return this.getResource(`/starships/${id}`);
-  }
-}
-
-const swapi = new SwapiServerce();
-
-swapi.getPlanet(3).then((p) => {
-  console.log(p.name);
-});
+ReactDOM.render(<App />, document.getElementById("root"));
