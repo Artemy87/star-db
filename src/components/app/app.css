@@ -1,0 +1,5 @@
+.app {
+  display: grid;
+  grid-template-columns: minmax(0%, 25%) 2fr 3fr minmax(0%, 25%);
+  grid-template-rows: 20px auto auto auto;
+}

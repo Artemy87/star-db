@@ -1,0 +1,9 @@
+.item-list {
+  grid-area: 4 / 2 / 5 / 3;
+  margin: 10px;
+}
+
+.item-list .list-group-item:hover {
+  cursor: pointer;
+  background-color: rgb(136, 105, 20);
+}
