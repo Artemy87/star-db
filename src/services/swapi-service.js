@@ -49,8 +49,8 @@ export default class SwapiService {
   }
 
   _extractId(item) {
-    const idRegEx = /\/(\d*)\/$/;
-    return item.url.match(idRegEx)[1];
+    const idRegEx = /\/(\d*)\/$/; // RegEx записывается между слэшами /регулярное выражение/.
+    return item.url.match(idRegEx)[1]; // [0] это весь RegEx \/(\d*)\/$, вывод: /12/. А [1] это то, что в (), т.е. (\d*), вывод: 12.
   }
 
   transformPlanet(planet) {

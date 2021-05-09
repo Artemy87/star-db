@@ -2,8 +2,8 @@
   grid-area: 3 / 2 / 4 / 4;
   
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 200px;
   gap: 30px;
   background-color: #303030;
   border: 1px solid #444;
