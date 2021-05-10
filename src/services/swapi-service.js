@@ -53,8 +53,7 @@ export default class SwapiService {
     return item.url.match(idRegEx)[1]; // [0] это весь RegEx \/(\d*)\/$, вывод: /12/. А [1] это то, что в (), т.е. (\d*), вывод: 12.
   }
 
-  transformPlanet(planet) {
-
+  transformPlanet = (planet) => {
     return {
       id: this._extractId(planet),
       name: planet.name,
@@ -64,7 +63,7 @@ export default class SwapiService {
     }
   }
 
-  transformPerson(person) {
+  transformPerson = (person) => {
     return {
       id: this._extractId(person),
       name: person.name,
@@ -76,7 +75,7 @@ export default class SwapiService {
     }
   }
 
-  transformStarship(starship) {
+  transformStarship = (starship) => {
     return {
       id: this._extractId(starship),
       name: starship.name,

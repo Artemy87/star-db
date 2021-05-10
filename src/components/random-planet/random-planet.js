@@ -15,9 +15,13 @@ export default class RandomPlanet extends Component {
     error: false,
   };
 
-  constructor() {
-    super();
+  // componentDidMount - метод жизненного цикла компонента. Вызывается после того,
+  // как компонент первый раз удачно проинициализировался и отрисовался на странице.
+  // componentDidMount это удачное место(не использовать конструктор для этих целей) для того,
+  // чтобы проводить начальную инициализацию компонента или делать запросы к API.
+  componentDidMount() {
     this.updatePlanet();
+    this.interval = setInterval(this.updatePlanet, 3000);
   }
 
   onPlanetLoaded = (planet) => {
@@ -34,8 +38,8 @@ export default class RandomPlanet extends Component {
     });
   };
 
-  updatePlanet() {
-    const id = 12;
+  updatePlanet = () => {
+    const id = Math.floor(Math.random()*18) + 1;
     this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded)
