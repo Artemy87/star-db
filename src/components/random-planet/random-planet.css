@@ -2,7 +2,7 @@
   grid-area: 3 / 2 / 4 / 4;
   
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: minmax(200px, auto) 1fr;
   grid-template-rows: 200px;
   gap: 30px;
   background-color: #303030;
