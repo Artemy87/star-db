@@ -7,16 +7,16 @@ import ItemList from "../item-list";
 import PersonDetails from "../person-details";
 
 export default class App extends Component {
-
+  
   state = {
-    toggleRandomPlanet: true,
+    showRandomPlanet: true,
     selectedPerson: null
   }
 
   onPersonSelected = (id) => {
     this.setState({
       selectedPerson: id
-    });
+    })
   }
 
   render() {
@@ -24,9 +24,12 @@ export default class App extends Component {
       <div className="app">
         <Header />
         <RandomPlanet />
-        <ItemList 
-          onItemSelected={this.onPersonSelected}/>
-        <PersonDetails personId={this.state.selectedPerson}/>
+        <ItemList
+          onItemSelected={this.onPersonSelected}
+        />
+        <PersonDetails
+          personId={this.state.selectedPerson}
+        />
       </div>
     );
   }

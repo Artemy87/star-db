@@ -15,13 +15,13 @@ export default class RandomPlanet extends Component {
     error: false,
   };
 
-  // componentDidMount - метод жизненного цикла компонента. Вызывается после того,
+  // componentDidMount - метод жизненного цикла компонента(lifecycle hooks). Вызывается после того,
   // как компонент первый раз удачно проинициализировался и отрисовался на странице.
   // componentDidMount это удачное место(не использовать конструктор для этих целей) для того,
   // чтобы проводить начальную инициализацию компонента или делать запросы к API.
   componentDidMount() {
     this.updatePlanet();
-    this.interval = setInterval(this.updatePlanet, 3000);
+    this.interval = setInterval(this.updatePlanet, 6000);
   }
 
   onPlanetLoaded = (planet) => {

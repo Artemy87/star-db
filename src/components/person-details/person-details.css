@@ -11,7 +11,7 @@
 }
 
 .person-details img {
-  width: 150px;
+  width: 180px;
   border-radius: 5px;
 }
 
@@ -21,7 +21,7 @@
 
 .person-details .list-group-item:hover {
   cursor: pointer;
-  background-color: rgb(136, 105, 20);
+  background-color: rgb(199, 62, 199);
 
 }
 

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import "./person-details.css";
 
-const PersonDetails = () => {
-  return (
+export default class PersonDetails extends Component {
+
+  render() {
+      return (
     <div className="person-details">
       <img
         className="person"
@@ -28,6 +30,6 @@ const PersonDetails = () => {
       </div>
     </div>
   );
-};
+  }
 
-export default PersonDetails;
+};

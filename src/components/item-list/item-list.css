@@ -3,7 +3,8 @@
   margin: 10px;
 }
 
-.list-group-item:hover {
+.item-list .list-group-item:hover {
   cursor: pointer;
-  background-color: rgb(136, 105, 20);
+  background-color: rgb(199, 62, 199);
 }
+
