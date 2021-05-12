@@ -1,5 +1,5 @@
 .person-details {
-  grid-area: 4 / 3 / 5 / 4;
+  grid-area: 5 / 3 / 5 / 4;
   display: grid;
   grid-template-columns: auto 1fr;
 
@@ -10,7 +10,8 @@
   background-color: #303030;
 }
 
-.person-details img {
+.person-details .person {
+  grid-column-start: 1;
   width: 180px;
   border-radius: 5px;
 }
