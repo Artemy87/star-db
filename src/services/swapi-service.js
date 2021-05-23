@@ -7,7 +7,7 @@
 export default class SwapiService {
   _apiBase = "https://swapi.dev/api";
 
-  async getResource(url) {
+  getResource = async (url) => {
     const res = await fetch(`${this._apiBase}${url}`);
     if (!res.ok) {
       throw new Error(`
@@ -16,42 +16,42 @@ export default class SwapiService {
     }
 
     return await res.json();
-  }
+  };
 
-  async getAllPeople() {
+  getAllPeople = async () => {
     const res = await this.getResource(`/people/`);
     return res.results.map(this.transformPerson);
-  }
+  };
 
-  async getPerson(id) {
+  getPerson = async (id) => {
     const person = await this.getResource(`/people/${id}`);
     return this.transformPerson(person);
-  }
+  };
 
-  async getAllPlanets() {
+  getAllPlanets = async () => {
     const res = await this.getResource(`/planets/`);
     return res.results.map(this.transformPlanet);
-  }
+  };
 
-  async getPlanet(id) {
+  getPlanet = async (id) => {
     const planet = await this.getResource(`/planets/${id}`);
     return this.transformPlanet(planet);
-  }
+  };
 
-  async getAllStarships() {
+  getAllStarships = async () => {
     const res = await this.getResource(`/starships/`);
     return res.results.map(this.transformStarship);
-  }
+  };
 
-  async getStarship(id) {
+  getStarship = async (id) => {
     const starship = await this.getResource(`/starships/${id}`);
     return this.transformStarShip(starship);
-  }
+  };
 
-  _extractId(item) {
+  _extractId = (item) => {
     const idRegEx = /\/(\d*)\/$/; // RegEx записывается между слэшами /регулярное выражение/.
     return item.url.match(idRegEx)[1]; // [0] это весь RegEx \/(\d*)\/$, вывод: /12/. А [1] это то, что в (), т.е. (\d*), вывод: 12.
-  }
+  };
 
   transformPlanet = (planet) => {
     return {

@@ -1,0 +1,5 @@
+.error-button {
+  grid-area: 4 / 3 / 5 / 4;
+  margin: 10px;
+  margin-right: 100px;
+}

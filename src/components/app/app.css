@@ -1,10 +1,18 @@
 .app {
   display: grid;
   grid-template-columns: minmax(0%, 25%) 2fr 3fr minmax(0%, 25%);
-  grid-template-rows: 20px auto auto auto auto;
+  grid-template-rows: 20px repeat(4, auto);
 }
 
-.app button {
+.app .app-button {
   grid-area: 4 / 2 / 5 / 3;
   margin: 10px;
+}
+
+.people-page2 {
+  grid-area: 6 / 2 / 7 / 3;
+}
+
+.people-page3 {
+  grid-area: 7 / 2 / 8 / 3;
 }

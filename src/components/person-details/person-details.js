@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import Spinner from '../spinner/spinner';
 import SwapiService from "../../services/swapi-service";
+import ErrorButton from "../error-button/error-button";
+
 import "./person-details.css";
 
 export default class PersonDetails extends Component {
@@ -35,6 +37,8 @@ export default class PersonDetails extends Component {
       this.setState({ person });
     });
   }
+
+  // componentWillMount();
 
   render() {
     if (!this.state.person) {
@@ -71,6 +75,7 @@ export default class PersonDetails extends Component {
               <span>{eyeColor}</span>
             </li>
           </ul>
+          <ErrorButton />
         </div>
       </div>
     );
