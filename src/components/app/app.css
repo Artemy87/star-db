@@ -1,18 +1,16 @@
-.app {
-  display: grid;
-  grid-template-columns: minmax(0%, 25%) 2fr 3fr minmax(0%, 25%);
-  grid-template-rows: 20px repeat(4, auto);
+.button-row {
+  margin: 0 0 1rem 0;
 }
 
-.app .app-button {
-  grid-area: 4 / 2 / 5 / 3;
-  margin: 10px;
+.button-row button {
+  margin-right: 1rem;
 }
 
-.people-page2 {
-  grid-area: 6 / 2 / 7 / 3;
+.stardb-app .row {
+  margin-bottom: 1rem;
 }
 
-.people-page3 {
-  grid-area: 7 / 2 / 8 / 3;
+.stardb-app {
+  margin-left: 30px;
+  margin-right: 30px;
 }

@@ -7,6 +7,7 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 import "./random-planet.css";
 
 export default class RandomPlanet extends Component {
+  
   swapiService = new SwapiService();
 
   state = {
