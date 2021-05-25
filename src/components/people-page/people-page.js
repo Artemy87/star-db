@@ -3,8 +3,8 @@ import ItemList from "../item-list/item-list";
 import PersonDetails from "../person-details/person-details";
 import ErrorIndicator from "../error-indicator";
 import Row from "../row/row";
-
 import SwapiService from "../../services/swapi-service";
+import ErrorBoundry from '../erorr-boundry/error-boundry';
 
 import "./people-page.css";
 
@@ -13,13 +13,7 @@ export default class PeoplePage extends Component {
 
   state = {
     selectedPerson: 3,
-    hasError: false,
   };
-
-  componentDidCatch(error, info) {
-    debugger;
-    this.setState({ hasError: true });
-  }
 
   onPersonSelected = (id) => {
     this.setState({
@@ -36,20 +30,17 @@ export default class PeoplePage extends Component {
       <ItemList
         onItemSelected={this.onPersonSelected}
         getData={this.swapiService.getAllPeople}
-        renderItem={({ name, gender, birthYear }) =>
-          `${name} (${gender}, ${birthYear})`
-        }
-      />
+      >
+        {(i) => `${i.name} (${i.birthYear})`}
+      </ItemList>
     );
 
     const personDetails = (
-      <PersonDetails personId={this.state.selectedPerson} />
+      <ErrorBoundry>
+        <PersonDetails personId={this.state.selectedPerson} />
+      </ErrorBoundry>
     );
 
-    return (
-      <div>
-        <Row left={itemList} right={personDetails} />
-      </div>
-    );
+    return <Row left={itemList} right={personDetails} />;
   }
 }

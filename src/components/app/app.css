@@ -1,16 +1,16 @@
 .button-row {
-  margin: 0 0 1rem 0;
+  margin-left: .5rem;
 }
 
 .button-row button {
   margin-right: 1rem;
 }
 
-.stardb-app .row {
+.app .row {
   margin-bottom: 1rem;
 }
 
-.stardb-app {
+.app {
   margin-left: 30px;
   margin-right: 30px;
 }
