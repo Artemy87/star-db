@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import Spinner from "../spinner/spinner";
-import SwapiService from "../../services/swapi-service";
 import ErrorButton from "../error-button/error-button";
 
 import "./item-details.css";
@@ -20,7 +19,6 @@ export {
 }
 
 export default class ItemDetails extends Component {
-  swapiService = new SwapiService();
 
   state = {
     item: null,
@@ -49,15 +47,13 @@ export default class ItemDetails extends Component {
     });
   }
 
-  // componentWillMount();
-
   render() {
     const { item, image } = this.state;
     if (!item) {
       return <span>Select a item from a list</span>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = item;
+    const { name } = item;
 
     if (!this.item) {
       <Spinner />;

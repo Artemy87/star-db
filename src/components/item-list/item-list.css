@@ -1,28 +1,12 @@
-.item-details {
-  display: flex;
-  flex-direction: row;
-  padding: 1rem;
-  border: 1px solid #444;
+
+.item-list {
+  margin-bottom: 1rem;
 }
 
-.item-details .item-image {
-  width: 30%;
-  height: 30%;
-  border-radius: 10px;
-}
 .item-list .list-group-item {
-  padding: .25rem;
-}
-
-.item-list .list-group-item .term {
-  margin-right: 5px;
+  cursor: pointer;
 }
 
 .item-list .list-group-item:hover {
-  background-color: rgb(199, 62, 199);
+  background-color: #444;
 }
-
-.item-details button {
-  margin-top: 5px;
-}
-
