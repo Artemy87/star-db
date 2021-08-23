@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "../header";
 import RandomPlanet from "../random-planet";
@@ -6,56 +7,40 @@ import ErrorBoundry from "../erorr-boundry";
 
 import SwapiService from "../../services/swapi-service";
 
-import {
-  PersonDetails,
-  PlanetDetails,
-  StarshipDetails,
-  PersonList,
-  PlanetList,
-  StarshipList,
-} from "../sw-components";
+import { PeoplePage, PlanetsPage, StarshipsPage } from "../pages";
+import { SwapiServiceProvider } from "../swapi-service-context";
 
-import './app.css';
+import "./app.css";
 
 export default class App extends Component {
-
-  swapiService = new SwapiService();
-
   state = {
-    showRandomPlanet: true,
+    swapiService: new SwapiService(),
   };
 
-  toggleRandomPlanet = () => {
-    this.setState((state) => {
+  onServiceChange = () => {
+    this.setState(({ swapiService }) => {
+      const Service = SwapiService;
+
       return {
-        showRandomPlanet: !state.showRandomPlanet,
+        swapiService: new Service(),
       };
     });
   };
 
   render() {
-
     return (
       <ErrorBoundry>
-        <div className="stardb-app">
-          <Header />
-
-          <RandomPlanet />
-
-          
-          <PersonDetails itemId={11} />
-
-          {/* <PlanetDetails itemId={5} />
-
-          <StarshipDetails itemId={9} /> */}
-
-          <PersonList />
-
-          {/* <StarshipList />
-
-          <PlanetList /> */}
-
-        </div>
+        <SwapiServiceProvider value={this.state.swapiService}>
+          <Router>
+            <div className="stardb-app">
+              <Header onServiceChange={this.onServiceChange} />
+              <RandomPlanet />
+              <Route path="/people" component={PeoplePage} />
+              <Route path="/planets" component={PlanetsPage} />
+              <Route path="/starships" component={StarshipsPage} />
+            </div>
+          </Router>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }

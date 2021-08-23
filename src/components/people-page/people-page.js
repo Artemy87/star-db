@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ItemList from "../item-list/item-list";
 import ItemDetails from "../item-details/item-details";
-import ErrorIndicator from "../error-indicator";
 import Row from "../row/row";
 import SwapiService from "../../services/swapi-service";
 import ErrorBoundry from "../erorr-boundry/error-boundry";
@@ -17,7 +16,7 @@ export default class PeoplePage extends Component {
 
   onPersonSelected = (selectedPerson) => {
     this.setState({
-      selectedPerson,
+      selectedPerson
     });
   };
 
@@ -27,7 +26,7 @@ export default class PeoplePage extends Component {
         onItemSelected={this.onPersonSelected}
         getData={this.swapiService.getAllPeople}
       >
-        {(i) => `${i.name} (${i.birthYear})`}
+        {(i) => (`${i.name} (${i.birthYear})`)}
       </ItemList>
     );
 

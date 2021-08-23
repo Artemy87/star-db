@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import Spinner from "../spinner/spinner";
 import ErrorButton from "../error-button/error-button";
 
 import "./item-details.css";
@@ -30,20 +29,25 @@ export default class ItemDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.itemId !== prevProps.itemId) {
+    if (this.props.itemId !== prevProps.itemId ||
+      this.props.getData !== prevProps.getData ||
+      this.props.getImageUrl !== prevProps.getImageUrl) {
       this.updateItem();
     }
   }
 
   updateItem() {
     const { itemId, getData, getImageUrl } = this.props;
-
     if (!itemId) {
       return;
     }
 
-    getData(itemId).then((item) => {
-      this.setState({ item, image: getImageUrl(item) });
+    getData(itemId)
+      .then((item) => {
+        this.setState({
+          item,
+          image: getImageUrl(item)
+        });
     });
   }
 
@@ -55,10 +59,6 @@ export default class ItemDetails extends Component {
 
     const { name } = item;
 
-    if (!this.item) {
-      <Spinner />;
-    }
-
     return (
       <div className="item-details card">
         <img className="item-image" src={image} alt="item" />
@@ -67,7 +67,6 @@ export default class ItemDetails extends Component {
           <ul className="list-group list-group-flush">
             {
               React.Children.map(this.props.children, (child) => {
-
                 return React.cloneElement(child, { item });
               })
             }
