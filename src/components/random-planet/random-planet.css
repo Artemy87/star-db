@@ -4,8 +4,8 @@
   background-color: #303030;
   border: 1px solid #444;
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-bottom: 25px;
 }
 
 .random-planet img {
@@ -20,4 +20,9 @@
 
 .random-planet ul {
   padding-left: 0px;
+}
+
+.name-random-planet {
+  padding-left: 10px;
+  margin: 10px;
 }
